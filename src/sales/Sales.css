@@ -1,0 +1,65 @@
+/* Sales landing page. Scoped to .sl-root (which also carries .db for shared tokens/KPI/picker styles). */
+.sl-root { padding-top: 22px; }
+.sl-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.sl-title { margin: 0; font-size: 40px; line-height: 46px; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+.sl-subtitle { margin: 6px 0 0; font-size: 17px; color: #b6c1d8; }
+.sl-new { display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 24px; border: 0; border-radius: 6px; cursor: pointer;
+  background: linear-gradient(180deg, #ff2236, #d90f26); color: #fff; font: inherit; font-size: 18px; font-weight: 600;
+  box-shadow: 0 8px 26px rgba(232, 33, 47, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+.sl-new:hover:not(:disabled) { filter: brightness(1.1); }
+.sl-new:disabled { opacity: 0.6; cursor: not-allowed; }
+.sl-new:focus-visible, .sl-edit:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+.sl-alert { margin-bottom: 14px; padding: 12px 14px; border-radius: 8px; color: #ffb4c0; background: rgba(244, 63, 94, 0.12); border: 1px solid rgba(244, 63, 94, 0.4); }
+
+.sl-monthbar { display: flex; align-items: center; gap: 24px; padding: 18px 24px; margin-bottom: 16px; }
+.sl-monthlabel { font-size: 18px; font-weight: 700; color: #f0f4fc; }
+.sl-monthbar .db-month-trigger { min-width: 280px; height: 50px; }
+
+.sl-body { display: grid; gap: 16px; transition: opacity 0.15s; padding-bottom: 8px; }
+.sl-body.is-loading { opacity: 0.55; }
+
+.sl-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.sl-kpis .db-kpi { padding: 18px; }
+.sl-kpis .db-kpi-body { align-items: center; row-gap: 4px; }
+.sl-kpis .db-kpi-label { font-size: 16px; line-height: 20px; }
+.sl-pct { font-size: 0.6em; font-weight: 500; color: #c3cde2; letter-spacing: 0; }
+.is-red { color: var(--loss); }
+.db-kpi-value.is-red .sl-pct { color: inherit; }
+.tone-orange { color: #fb923c; background: rgba(251, 146, 60, 0.2); }
+.tone-indigo { color: #818cf8; background: rgba(99, 102, 241, 0.22); }
+
+.sl-orders { padding: 20px 24px 14px; min-width: 0; }
+.sl-orders-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.sl-orders-title { display: flex; align-items: center; gap: 14px; margin: 0; font-size: 22px; font-weight: 700; color: #f0f4fc; }
+.sl-orders-title svg { color: #d5ddee; }
+.sl-count { padding: 8px 14px; border-radius: 8px; font-size: 16px; color: #e1e8f5; background: rgba(120, 150, 210, 0.14); white-space: nowrap; }
+
+.sl-table-wrap { overflow-x: auto; }
+.sl-table { width: 100%; min-width: 1280px; border-collapse: collapse; font-size: 16px; }
+.sl-table th { padding: 14px 12px; text-align: left; font-size: 15px; font-weight: 500; line-height: 1.25; color: #9fb0d0; background: none; border-bottom: 1px solid var(--line); white-space: normal; }
+.sl-table td { padding: 11px 12px; border-bottom: 1px solid rgba(120, 150, 210, 0.12); white-space: nowrap; color: #f0f4fc; }
+.sl-table .c { text-align: center; }
+.sl-table td.gain { color: var(--gain); font-weight: 600; }
+.sl-table td.loss { color: var(--loss); font-weight: 600; }
+.sl-table td.is-red { color: var(--loss); font-weight: 600; }
+.sl-table .db-status { font-size: 15px; padding: 4px 14px; border-radius: 6px; }
+.sl-edit { width: 42px; height: 42px; display: inline-grid; place-items: center; border-radius: 8px; cursor: pointer;
+  border: 1px solid rgba(160, 180, 225, 0.4); background: rgba(255, 255, 255, 0.03); color: #f0f4fc; }
+.sl-edit:hover:not(:disabled) { background: rgba(255, 255, 255, 0.1); }
+.sl-edit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.sl-empty { display: grid; justify-items: center; gap: 14px; padding: 34px 8px 44px; text-align: center; }
+.sl-empty p { margin: 0; font-size: 22px; font-weight: 700; color: #f0f4fc; }
+.sl-box { max-width: 100%; height: auto; }
+
+@media (max-width: 1099px) {
+  .sl-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 699px) {
+  .sl-title { font-size: 32px; line-height: 38px; }
+  .sl-new { width: 100%; justify-content: center; }
+  .sl-monthbar { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px; }
+  .sl-monthbar .db-month-trigger { width: 100%; min-width: 0; }
+  .sl-orders { padding: 16px 14px 10px; }
+  .sl-orders-title { font-size: 18px; gap: 10px; }
+}

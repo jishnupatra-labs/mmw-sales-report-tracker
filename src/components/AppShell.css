@@ -1,0 +1,104 @@
+/* Signed-in shell. All selectors are prefixed sh-. The header is dark on every page;
+   the full-width dark canvas is used on the Dashboard only. */
+.sh-shell {
+  --sh-gutter: clamp(14px, 3.3vw, 50px);
+  min-height: 100vh;
+  font-family: Inter, 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+}
+.sh-shell.is-dark,
+.sh-shell:has(.sl-root, .ed-root) {
+  color-scheme: dark;
+  background:
+    radial-gradient(ellipse 60% 30% at 50% 0%, rgba(40, 90, 200, 0.2), transparent 72%),
+    radial-gradient(ellipse 45% 30% at 100% 100%, rgba(20, 60, 140, 0.16), transparent 70%),
+    linear-gradient(180deg, #081022 0%, #060b17 100%);
+}
+
+.sh-header {
+  position: relative;
+  z-index: 20;
+  background: linear-gradient(180deg, #0b1528, #080f1e);
+  border-bottom: 1px solid rgba(88, 120, 190, 0.24);
+}
+.sh-header-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 1760px;
+  height: 74px;
+  margin: 0 auto;
+  padding: 0 var(--sh-gutter);
+  color: #e8edf8;
+}
+.sh-header-inner > * { position: relative; z-index: 1; }
+.sh-header-inner > .sh-silhouette { position: absolute; z-index: 0; right: 24%; top: 50%; width: 300px; transform: translateY(-50%); opacity: 0.1; pointer-events: none; }
+
+.sh-brand { display: flex; align-items: center; gap: 22px; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; text-align: left; }
+.sh-brand-logo { width: 100px; height: auto; display: block; }
+.sh-brand-text { display: flex; flex-direction: column; gap: 2px; }
+.sh-brand-name { font-size: 18px; font-weight: 700; line-height: 22px; color: #f4f7fd; white-space: nowrap; }
+.sh-brand-sub { font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #aeb9cf; }
+
+.sh-nav { display: flex; align-items: center; gap: 22px; margin-left: clamp(8px, 2.6vw, 44px); }
+.sh-tab {
+  position: relative;
+  display: flex; align-items: center; gap: 10px;
+  height: 56px; padding: 0 24px;
+  border: 1px solid transparent; border-radius: 8px;
+  background: none; color: #d3dbec; font: inherit; font-size: 17px; cursor: pointer;
+}
+.sh-tab:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+.sh-tab.active {
+  color: #fff;
+  background: linear-gradient(180deg, rgba(232, 33, 47, 0.34), rgba(232, 33, 47, 0.12));
+  border-color: rgba(232, 33, 47, 0.4);
+}
+.sh-tab.active svg { color: #ff4756; }
+.sh-tab.active::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -8px; height: 4px; border-radius: 2px;
+  background: #ef2a3a; box-shadow: 0 0 14px rgba(239, 42, 58, 0.75);
+}
+.sh-tab:focus-visible, .sh-brand:focus-visible, .sh-chip:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+
+.sh-user { display: flex; align-items: center; gap: 18px; margin-left: auto; }
+.sh-chip { display: flex; align-items: center; gap: 10px; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.sh-avatar { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; font-weight: 700; font-size: 16px; color: #fff;
+  background: linear-gradient(145deg, #2f6df6, #1a3fb8); }
+.sh-username { max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 16px; }
+.sh-chip-chevron { display: grid; color: #c3cde2; transition: transform 0.15s; }
+.sh-chip-chevron.is-open { transform: rotate(180deg); }
+.sh-user { position: relative; }
+.sh-dropdown { position: absolute; right: 0; top: calc(100% + 12px); z-index: 50; min-width: 210px; padding: 8px; border-radius: 10px;
+  border: 1px solid rgba(88, 120, 190, 0.35); background: #0b1427; box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6); }
+.sh-menuitem { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border: 0; border-radius: 8px; background: none;
+  color: #e8edf8; font: inherit; font-size: 16px; text-align: left; cursor: pointer; }
+.sh-menuitem:hover, .sh-menuitem:focus-visible { background: rgba(255, 255, 255, 0.08); outline: none; }
+.sh-menuitem.danger { color: #ff6b78; }
+
+/* Dashboard canvas (and the Sales landing page): full browser width, same gutters as the header */
+.sh-canvas,
+.sh-shell:has(.sl-root, .ed-root) > main.content { max-width: 1760px; margin: 0 auto; padding: 0 var(--sh-gutter) 40px; }
+
+@media (max-width: 1099px) {
+  .sh-header-inner > .sh-silhouette { display: none; }
+  .sh-tab { padding: 0 16px; font-size: 16px; }
+  .sh-nav { gap: 10px; }
+}
+@media (max-width: 760px) {
+  .sh-header-inner { height: 60px; gap: 10px; }
+  .sh-brand { gap: 10px; }
+  .sh-brand-logo { width: 62px; }
+  .sh-brand-name { font-size: 15px; }
+  .sh-brand-sub { font-size: 10px; }
+  .sh-username, .sh-chip-chevron { display: none; }
+  /* tab bar moves to the bottom of the screen */
+  .sh-nav {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; margin: 0; gap: 0;
+    height: 62px; padding: 0 8px; justify-content: space-around;
+    background: #0a1224; border-top: 1px solid rgba(88, 120, 190, 0.3);
+  }
+  .sh-tab { flex: 1; flex-direction: column; justify-content: center; gap: 2px; height: 52px; padding: 0; font-size: 12px; }
+  .sh-tab.active::after { bottom: auto; top: -6px; }
+  .sh-canvas, .sh-shell main.content, .sh-shell:has(.sl-root, .ed-root) > main.content { padding-bottom: 84px; }
+}

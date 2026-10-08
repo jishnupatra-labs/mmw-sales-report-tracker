@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:wght@700&display=swap');
+
+/* All selectors are prefixed lg- so nothing here affects the rest of the app. */
+.lg-page {
+  position: fixed;
+  inset: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: grid;
+  place-items: center;
+  padding: 40px 16px 24px;
+  font-family: Inter, 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+  color: #fff;
+  background:
+    radial-gradient(ellipse 70% 60% at 0% 0%, rgba(74, 90, 112, 0.38), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 100% 100%, rgba(8, 12, 18, 0.55), transparent 70%),
+    linear-gradient(160deg, #16202c 0%, #0f1722 55%, #0c121b 100%);
+}
+
+/* Large, faint, cropped car derived from the logo */
+.lg-bg-car {
+  position: absolute;
+  left: 62%;
+  top: 50.5%;
+  width: 58vw;
+  aspect-ratio: 1400 / 659;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  filter: blur(0.4px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.lg-card {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  padding: 62px 42px 30px;
+  text-align: center;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 45%),
+    rgba(18, 24, 34, 0.88);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+.lg-logo {
+  display: block;
+  width: 222px;
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.lg-brand {
+  margin-top: 13px;
+  font-family: Lato, Inter, 'Segoe UI', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  color: #dcdee2;
+}
+
+.lg-product {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #9aa1ab;
+  padding-left: 0.28em; /* balances trailing letter-spacing so the text looks centred */
+}
+
+.lg-title {
+  margin: 38px 0 0;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.lg-subtitle {
+  margin: 6px 0 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: #8b929c;
+}
+
+.lg-field { margin-top: 20px; text-align: left; }
+.lg-subtitle + .lg-field { margin-top: 33px; }
+
+.lg-sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.lg-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #0f151e;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.lg-input:focus-within {
+  border-color: rgba(232, 33, 47, 0.7);
+  box-shadow: 0 0 0 3px rgba(232, 33, 47, 0.16);
+}
+.lg-input.has-error { border-color: rgba(255, 107, 120, 0.8); }
+
+.lg-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 58px;
+  color: #c3c8d0;
+}
+
+.lg-input input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 14px 0 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  outline: none;
+}
+.lg-input input::placeholder { color: #7b8490; }
+.lg-input input:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  box-shadow: 0 0 0 100px #0f151e inset;
+  caret-color: #fff;
+}
+
+.lg-eye {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: #aab1bb;
+  cursor: pointer;
+}
+.lg-eye:hover { color: #fff; }
+.lg-eye:focus-visible { outline: 2px solid rgba(232, 33, 47, 0.7); outline-offset: -4px; border-radius: 10px; }
+
+.lg-error {
+  margin: 8px 2px 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: #ff6b78;
+}
+
+.lg-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 58px;
+  margin-top: 27px;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(180deg, #e8212f 0%, #b9162a 100%);
+  color: #fff;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 26px rgba(220, 30, 50, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: filter 0.15s, transform 0.05s;
+}
+.lg-submit:hover:not(:disabled) { filter: brightness(1.1); }
+.lg-submit:active:not(:disabled) { transform: translateY(1px); }
+.lg-submit:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.lg-submit:disabled { opacity: 0.7; cursor: not-allowed; box-shadow: none; }
+
+.lg-auth-error {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ff6b78;
+}
+
+.lg-divider {
+  margin: 42px 0 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lg-footer {
+  margin: 28px 0 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: #6e7681;
+}
+
+/* Tablet / mobile */
+@media (max-width: 640px) {
+  .lg-page { padding: 16px 12px; }
+  .lg-card { padding: 40px 22px 24px; border-radius: 16px; }
+  .lg-logo { width: 190px; }
+  .lg-brand { font-size: 28px; line-height: 34px; }
+  .lg-product { font-size: 12.5px; }
+  .lg-title { margin-top: 30px; font-size: 28px; line-height: 36px; }
+  .lg-subtitle { font-size: 15px; }
+  .lg-icon { width: 50px; }
+  .lg-divider { margin-top: 32px; }
+  .lg-footer { margin-top: 22px; font-size: 12px; }
+  .lg-bg-car { left: 40%; top: 70%; width: 110vw; opacity: 0.1; }
+}
+
+@media (max-width: 420px) {
+  .lg-subtitle { font-size: 14px; }
+}

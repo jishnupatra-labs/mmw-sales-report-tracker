@@ -1,0 +1,65 @@
+/* New Order / Edit Order page. Scoped to .ed-root (which also carries .db for shared tokens and KPI card styles). */
+.ed-root { padding-top: 22px; }
+.ed-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.ed-title { margin: 0; font-size: 38px; line-height: 44px; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+.ed-subtitle { margin: 4px 0 0; font-size: 17px; color: #b6c1d8; }
+.ed-header-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.ed-card { padding: 20px 22px; margin-bottom: 16px; min-width: 0; }
+.ed-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 14px; margin-bottom: 16px; border-bottom: 1px solid var(--line); }
+.ed-card-title { display: flex; align-items: center; gap: 14px; margin: 0; font-size: 22px; font-weight: 700; color: #f0f4fc; }
+.ed-card-title svg { color: #d5ddee; }
+.ed-note, .ed-count { font-size: 15px; color: #b6c1d8; }
+
+.ed-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 18px; }
+.ed-span2 { grid-column: span 2; }
+
+.ed-summary { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; margin-bottom: 16px; }
+.ed-summary .db-kpi { padding: 18px 16px; }
+.ed-summary .db-kpi-body { align-items: center; row-gap: 4px; }
+
+.ed-empty { display: grid; justify-items: center; gap: 6px; padding: 30px 12px 34px; border: 1px dashed rgba(140, 165, 220, 0.35); border-radius: 10px; text-align: center; }
+.ed-empty-title { margin: 6px 0 0; font-size: 20px; font-weight: 700; color: #fff; }
+.ed-empty-sub { margin: 0 0 12px; font-size: 16px; color: #b6c1d8; }
+
+.ed-table-wrap { overflow-x: auto; }
+.ed-table { width: 100%; min-width: 860px; border-collapse: collapse; font-size: 16px; }
+.ed-table th { padding: 12px 12px; text-align: left; font-size: 15px; font-weight: 500; color: #9fb0d0; background: none; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.ed-table td { padding: 12px; border-bottom: 1px solid rgba(120, 150, 210, 0.12); color: #f0f4fc; white-space: nowrap; }
+.ed-table .c { text-align: center; }
+.ed-row-actions { display: inline-flex; gap: 10px; }
+
+.ed-carform { margin-top: 16px; padding: 16px 18px 18px; border-radius: 10px; border: 1px solid rgba(255, 74, 95, 0.35); background: rgba(160, 20, 45, 0.16); }
+.ed-carform-title { margin: 0 0 12px; font-size: 19px; font-weight: 700; color: #ff6b7d; }
+.ed-carform-grid { display: grid; grid-template-columns: 1.1fr 1.1fr 1.5fr 0.7fr 0.9fr 0.9fr auto; gap: 14px; align-items: start; }
+.ed-carform-actions { display: flex; gap: 10px; padding-top: 30px; }
+
+.ed-addrow { display: grid; justify-items: center; gap: 12px; margin-top: 18px; }
+.ed-hint { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 15px; color: #b6c1d8; }
+
+.ed-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 16px; margin-bottom: 8px; }
+.ed-barmsg { display: flex; align-items: center; gap: 12px; margin: 0; padding: 14px 16px; flex: 1 1 320px; max-width: 640px; border-radius: 8px; font-size: 16px; }
+.ed-barmsg.err { color: #ff8393; background: rgba(160, 20, 45, 0.22); }
+.ed-bar-actions { display: flex; gap: 14px; margin-left: auto; }
+
+
+.ed-success-mark { display: block; margin: 0 auto; }
+
+@media (max-width: 1299px) {
+  .ed-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ed-carform-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ed-carform-actions { padding-top: 0; grid-column: 1 / -1; }
+}
+@media (max-width: 1099px) {
+  .ed-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 699px) {
+  .ed-title { font-size: 30px; line-height: 36px; }
+  .ed-grid { grid-template-columns: 1fr; }
+  .ed-span2 { grid-column: auto; }
+  .ed-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ed-carform-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ed-card { padding: 16px 14px; }
+  .ed-bar-actions { width: 100%; }
+  .ed-bar-actions .ui-btn { flex: 1; }
+}

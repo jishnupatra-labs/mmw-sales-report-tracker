@@ -1,0 +1,66 @@
+/* Account page. Scoped to .ac-root (which also carries .db for shared tokens and .db-card). */
+
+/* Dark full-width canvas for this page (same look as the Dashboard / Sales / Reports pages), applied from here
+   so the shared shell files stay untouched. */
+.sh-shell:has(.ac-root) {
+  color-scheme: dark;
+  background:
+    radial-gradient(ellipse 60% 30% at 50% 0%, rgba(40, 90, 200, 0.2), transparent 72%),
+    radial-gradient(ellipse 45% 30% at 100% 100%, rgba(20, 60, 140, 0.16), transparent 70%),
+    linear-gradient(180deg, #081022 0%, #060b17 100%);
+}
+.sh-shell:has(.ac-root) > main.content { max-width: 1760px; margin: 0 auto; padding: 0 var(--sh-gutter) 40px; }
+
+.ac-root { padding-top: 18px; }
+.ac-title { margin: 0; font-size: 46px; line-height: 52px; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
+.ac-subtitle { margin: 2px 0 18px; font-size: 21px; color: #6fb1ff; }
+
+.ac-layout { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.ac-left { display: grid; gap: 22px; }
+.ac-card { padding: 22px; min-width: 0; }
+.ac-card-head { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.ac-head-icon { display: grid; place-items: center; flex: none; width: 46px; height: 46px; }
+.ac-head-icon.blue { color: #3b8bff; }
+.ac-head-icon.red { color: #ff4a5f; }
+.ac-card-title { margin: 0; font-size: 26px; line-height: 32px; font-weight: 700; color: #fff; }
+.ac-card-sub { margin: 2px 0 0; font-size: 18px; color: #8fb6e8; }
+
+.ac-profile { display: flex; align-items: center; gap: 30px; padding: 28px 30px; border-radius: 10px; border: 1px solid var(--line); background: rgba(8, 16, 32, 0.55); }
+.ac-avatar { flex: none; width: 134px; height: 134px; display: grid; place-items: center; border-radius: 50%; font-size: 54px; font-weight: 700; color: #fff;
+  background: linear-gradient(145deg, #3d6192, #2c4a78); }
+.ac-profile-text { min-width: 0; }
+.ac-name { margin: 0; font-size: 34px; line-height: 40px; font-weight: 700; color: #fff; overflow-wrap: anywhere; }
+.ac-email { margin: 4px 0 12px; font-size: 21px; color: #6fb1ff; overflow-wrap: anywhere; }
+.ac-active { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 99px; font-size: 17px; color: #2ee59a; background: rgba(16, 150, 90, 0.28); }
+.ac-logout { width: 100%; min-height: 64px; font-size: 22px; border-radius: 8px; }
+
+.ac-form { display: grid; gap: 22px; padding: 24px 26px 26px; border-radius: 10px; border: 1px solid var(--line); background: rgba(8, 16, 32, 0.45); }
+.ac-form .ui-label { font-size: 19px; font-weight: 600; color: #fff; }
+.ac-pw { position: relative; }
+.ac-pw .ui-control { height: 60px; padding-left: 56px; padding-right: 56px; font-size: 19px; }
+.ac-pw-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); display: grid; color: #dbe3f2; pointer-events: none; }
+.ac-pw-eye { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; display: grid; place-items: center; border: 0; background: none; color: #c3cde2; cursor: pointer; border-radius: 8px; }
+.ac-pw-eye:hover { color: #fff; }
+.ac-pw-eye:focus-visible { outline: 2px solid #3b82f6; }
+.ac-form-actions { display: flex; justify-content: flex-end; gap: 16px; margin-top: 8px; }
+.ac-form-actions .ui-btn { min-height: 62px; min-width: 150px; font-size: 20px; }
+
+/* popups (dark variant of the shared modal) */
+.ac-mark { display: block; margin: 4px auto 0; }
+.dark .ui-modal-text { color: #c6d6f2; font-size: 19px; }
+.ac-okbtn { min-width: 254px; min-height: 66px; margin-top: 8px; font-size: 22px; font-weight: 700; }
+
+@media (max-width: 1099px) { .ac-layout { grid-template-columns: 1fr; } }
+@media (max-width: 699px) {
+  .ac-title { font-size: 34px; line-height: 40px; }
+  .ac-subtitle { font-size: 17px; }
+  .ac-profile { flex-direction: column; text-align: center; padding: 22px 16px; gap: 16px; }
+  .ac-avatar { width: 104px; height: 104px; font-size: 40px; }
+  .ac-name { font-size: 27px; }
+  .ac-email { font-size: 17px; }
+  .ac-card { padding: 16px 14px; }
+  .ac-form { padding: 16px 14px; }
+  .ac-form-actions .ui-btn { flex: 1; min-width: 0; }
+  .ac-okbtn { min-width: 0; width: 100%; }
+  .sh-shell:has(.ac-root) > main.content { padding-bottom: 84px; }
+}

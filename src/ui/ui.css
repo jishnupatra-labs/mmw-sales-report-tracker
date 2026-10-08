@@ -1,0 +1,50 @@
+/* Shared dark-theme form controls, buttons and dialogs. Prefixed ui- . */
+.ui-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px;
+  background: rgba(4, 9, 20, 0.72); backdrop-filter: blur(2px); font-family: Inter, 'Segoe UI', system-ui, sans-serif; }
+.ui-modal { position: relative; width: 100%; max-width: 560px; padding: 34px 34px 30px; border-radius: 14px; text-align: center; outline: none;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55); }
+.ui-modal.light { background: #fff; color: #334155; }
+.ui-modal.dark { background: linear-gradient(160deg, #0d1a2e, #08111f); color: #c7d2e6; border: 1px solid rgba(88, 120, 190, 0.35); }
+.ui-modal-x { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; display: grid; place-items: center; border: 0; background: none; cursor: pointer; border-radius: 8px; }
+.light .ui-modal-x { color: #475569; } .dark .ui-modal-x { color: #c7d2e6; }
+.ui-modal-x:hover { background: rgba(128, 144, 176, 0.18); }
+.ui-modal-title { margin: 18px 0 8px; font-size: 27px; line-height: 1.2; font-weight: 700; }
+.light .ui-modal-title { color: #0f172a; } .dark .ui-modal-title { color: #fff; }
+.ui-modal-text { margin: 0; font-size: 17px; line-height: 1.55; white-space: pre-line; }
+.ui-modal-icon { width: 74px; height: 74px; margin: 6px auto 0; display: grid; place-items: center; border-radius: 50%; }
+.ui-modal-actions { display: flex; justify-content: center; gap: 14px; margin-top: 26px; flex-wrap: wrap; }
+.ui-modal-note { display: flex; align-items: center; gap: 10px; margin: 20px 0 0; padding: 14px 16px; border-radius: 8px; text-align: left; color: #c81e3a; background: #fdecef; font-size: 16px; }
+.ui-progress { height: 8px; margin: 22px 0 10px; border-radius: 99px; background: #e5eaf1; overflow: hidden; }
+.ui-progress > span { display: block; height: 100%; border-radius: 99px; background: #12a150; transition: width 1s linear; }
+.ui-countdown { margin: 0; font-size: 15px; color: #334155; }
+
+.ui-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 0 24px; border-radius: 8px; cursor: pointer;
+  font: inherit; font-size: 16px; font-weight: 600; border: 1px solid transparent; white-space: nowrap; }
+.ui-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.ui-btn:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+.ui-btn.red { background: linear-gradient(180deg, #ff2236, #d90f26); color: #fff; box-shadow: 0 6px 20px rgba(232, 33, 47, 0.3); }
+.ui-btn.blue { background: #0a6cff; color: #fff; }
+.ui-btn.green { background: #0f9d58; color: #fff; }
+.ui-btn.outline { background: transparent; color: #eef2fb; border-color: rgba(170, 190, 230, 0.4); }
+.ui-btn.outline-light { background: #fff; color: #0f172a; border-color: #94a3b8; }
+.ui-btn.outline-red { background: transparent; color: #ff4a5f; border-color: rgba(255, 74, 95, 0.7); }
+.ui-btn.outline-blue { background: transparent; color: #4d9bff; border-color: rgba(77, 155, 255, 0.7); }
+.ui-btn.sm { min-height: 40px; padding: 0 16px; font-size: 15px; }
+.ui-btn:hover:not(:disabled) { filter: brightness(1.1); }
+
+/* Form fields (dark) */
+.ui-field { min-width: 0; }
+.ui-label { display: block; margin: 0 0 8px; font-size: 15px; font-weight: 500; color: #dbe3f2; }
+.ui-label small { font-size: 14px; font-weight: 400; color: #8d9bb3; }
+.ui-control { width: 100%; height: 48px; padding: 0 14px; border-radius: 8px; border: 1px solid rgba(140, 165, 220, 0.32);
+  background: rgba(8, 16, 32, 0.9); color: #f0f4fc; font: inherit; font-size: 16px; }
+.ui-control::placeholder { color: #6f7f9a; }
+.ui-control:focus { outline: 2px solid #3b82f6; outline-offset: 0; border-color: transparent; }
+.ui-control:disabled { opacity: 0.6; }
+.ui-control.invalid { border-color: rgba(255, 107, 120, 0.85); }
+select.ui-control { appearance: none; -webkit-appearance: none; padding-right: 40px; cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23c3cde2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+  background-repeat: no-repeat; background-position: right 12px center; }
+select.ui-control option { background: #0b1427; color: #f0f4fc; }
+input[type='date'].ui-control { color-scheme: dark; }
+.ui-error { margin: 6px 0 0; font-size: 13.5px; line-height: 18px; color: #ff6b78; }
